@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
+//importar el modulo de form
+import { FormsModule }   from '@angular/forms';
 
 //firebase
 import {AngularFireDatabaseModule} from 'angularfire2/database';
@@ -27,7 +28,7 @@ import { ProductService} from './services/product.service';
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,FormsModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

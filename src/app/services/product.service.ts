@@ -5,8 +5,8 @@ import { Product} from '../models/product';
 @Injectable()
 export class ProductService {
 
-    producList:AngularFireList<any>;
-    selectProduc : Product = new Product();
+     producList:AngularFireList<any>;
+     selectedProduct : Product = new Product();
 
   constructor(private firebase:AngularFireDatabase ) { 
 
