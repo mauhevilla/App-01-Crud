@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 
 import { AngularFireDatabase,AngularFireList} from 'angularfire2/database';
 import { Product} from '../models/product';
+
 @Injectable()
 export class ProductService {
-
      producList:AngularFireList<any>;
      selectedProduct : Product = new Product();
 
@@ -12,7 +12,7 @@ export class ProductService {
 
   }
 
-  getProduct(){
+  getProducts(){
     return this.producList=this.firebase.list('product');
   }
 
