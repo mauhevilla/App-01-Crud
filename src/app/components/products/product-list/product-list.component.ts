@@ -4,6 +4,9 @@ import { ProductService} from '../../../services/product.service';
 // traer la clase o modelo 
 import{ Product} from '../../../models/product';
 import { element } from 'protractor';
+// impor toaster para memsajes
+import { ToastrService} from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-product-list',
@@ -14,7 +17,8 @@ export class ProductListComponent implements OnInit {
 
   productList : Product[];
 
-  constructor(private productService : ProductService) {     
+  constructor(private productService : ProductService,
+              private toast : ToastrService) {  
   }
 
   ngOnInit() {
@@ -32,10 +36,14 @@ export class ProductListComponent implements OnInit {
   }
 
   onEdit(product : Product){
-    this.productService.selectedProduct = product ;
+    this.productService.selectedProduct = Object.assign({},product) ;
   }
 
   onDelete($key:string){
-
+    if(confirm('Esta seguro de querer Eliminarlo ?')){
+      this.productService.deletProduct($key);
+      this.toast.success('Successfull Operation','Producto Elimnado ...');
+    }
+    
   }
 }

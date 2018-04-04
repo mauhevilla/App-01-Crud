@@ -1,7 +1,10 @@
 <div class="card mt-5">
   <div class="card-body">
     <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
-        <div class="form-group">
+
+      <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="productService.selectedProduct.$keys">
+
+      <div class="form-group">
           <input type="text"
               class="form-control"
               name="name"

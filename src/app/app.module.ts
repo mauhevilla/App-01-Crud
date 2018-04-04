@@ -5,6 +5,10 @@ import { AppComponent } from './app.component';
 //importar el modulo de form
 import { FormsModule }   from '@angular/forms';
 
+// importo las animaciones
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import{ ToastrModule} from 'ngx-toastr';
+
 //firebase
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {AngularFireModule} from 'angularfire2';
@@ -28,7 +32,10 @@ import { ProductService} from './services/product.service';
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,FormsModule
+    AngularFireDatabaseModule,
+    FormsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
