@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 // import Service
 import { ProductService} from '../../../services/product.service';
-// impor ngForm
-import { NgForm} from '@angular/forms';
 // import la clases product
 import { Product } from '../../../models/product';
-// impor toaster 
+// impor ngForm
+import { NgForm} from '@angular/forms';
+
+// impor toaster para mensajes
 import { ToastrService} from 'ngx-toastr';
 
 @Component({
@@ -15,7 +16,7 @@ import { ToastrService} from 'ngx-toastr';
 })
 export class ProductComponent implements OnInit {
 
-  constructor(private productService: ProductService,
+  constructor(public productService: ProductService,
              private toast : ToastrService) { }
 
   ngOnInit() {
@@ -26,7 +27,7 @@ export class ProductComponent implements OnInit {
   onSubmit(productForm : NgForm){
     if(productForm.value.$key == null){
       this.productService.insertProduct(productForm.value)  ;
-      this.toast.success('Operacion Agregar','Producto Actualizado');
+      this.toast.success('Operacion Agregar','Producto Grabado');
     }     
     else{
       this.productService.updateProduct(productForm.value);

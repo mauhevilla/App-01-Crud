@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-// traer el servicio
-import { ProductService} from '../../../services/product.service';
 // traer la clase o modelo 
 import{ Product} from '../../../models/product';
-import { element } from 'protractor';
+
+// traer el servicio
+import { ProductService} from '../../../services/product.service';
+
 // impor toaster para memsajes
 import { ToastrService} from 'ngx-toastr';
 
@@ -22,11 +23,10 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.productService.getProducts()
+    return this.productService.getProducts()
     .snapshotChanges()
     .subscribe(item => {
       this.productList=[];
-
       item.forEach(element => {
         let x = element.payload.toJSON();
         x["$key"]=element.key;

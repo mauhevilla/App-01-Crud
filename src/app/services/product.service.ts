@@ -26,7 +26,7 @@ export class ProductService {
     });
   }
   updateProduct(product :Product){
-    this.producList.update(product.$keys,{
+    this.producList.update(product.$key,{
       name :product.name,
       category:product.category,
       location:product.location,
